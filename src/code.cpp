@@ -13,36 +13,28 @@ namespace assignment {
 
   // Task 2
   bool check_bit(int mask, int bit_pos) {
-    if ((mask >= 0) &&  (bit_pos >= 0))
-      {
-        if ((1 << bit_pos)  &  mask) {
-          return true;
-        }
-        else
-        {
-          return false;
-        }
-
-      }
-    else {
+    if ((mask >= 0) && (bit_pos >= 0)) {
+      if ((1 << bit_pos) & mask) {
+        return true;
+      } else {
         return false;
       }
-  }
 
+    } else {
+      return false;
+    }
+  }
 
   // Task 3
   int max3(int left, int middle, int right) {
     int max_elem = 0;
-    if (left > middle && left > right)
-    {
+    if (left > middle && left > right) {
       max_elem = left;
       return max_elem;
-    }
-    else if (right > middle && right > left) {
+    } else if (right > middle && right > left) {
       max_elem = right;
       return max_elem;
-    }
-    else {
+    } else {
       max_elem = middle;
       return max_elem;
     }
@@ -56,8 +48,7 @@ namespace assignment {
       int tmp = *left;
       *left = *right;
       *right = tmp;
-    }
-    else {
+    } else {
       int *left;
       int *right;
     }
@@ -67,50 +58,39 @@ namespace assignment {
   int arr_sum(int *arr, int length) {
 
     int sum = 0;
-    int arr_i = 0;
-    if (*arr != NULL && length > 0)
-    {
-      sum = arr[0];
-      for (int i = 0; i < (length + 1); i++) {
-        if (length > 1)
-        {
-          sum = sum + arr[i + 1];
-          return sum;
-        }
-        else {
-          sum = arr[0];
-          return sum;
-        }
-
+    if (*arr != NULL && length > 0) {
+        for (int i = 0; i < length; i++) {
+        sum = sum + arr[i];
       }
+      return sum;
     }
-    else{
-      sum = 0;
+    else {
+      return 0;
     }
     return 0;
   }
 
+
   // Task 6
   int *find_max_elem(int *arr, int length) {
-    int max_elem;
-    int i;
+    int* max_elem;
     int max_i;
-    int link;
-        if (*arr != NULL && length > 0)
-    {
-        max_elem = arr[0];
-        for (i = 1; i < length; i++)
-        {
-          if (arr[i] > max_elem) {
-            max_elem = arr[i];
-            max_i = i;
-            link = &max_i;
-          }
+    int i;
+    if (*arr != NULL && length > 0) {
+      int* max_elem = &arr[0];
+      for (i = 1; i < length; i++) {
+        if (arr[i] > *max_elem) {
+          max_elem = &arr[i];
         }
+      }
+      return max_elem;
     }
     else {
-      return nullptr;
+      max_elem = NULL;
+      return max_elem;
     }
+
+    return 0;
   }
 
   // Task 7
